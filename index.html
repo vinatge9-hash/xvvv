@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Café Nova — Coffee & Co.</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src='https://cdn.tailwindcss.com'></script>
+  <style>
+    /*  Coffee Shop Palette (Glassmorphism-friendly) */
+    :root {
+      --primary: #3C2A21;            /* Dark brown */
+      --secondary: #85583A;          /* Button brown */
+      --accent: #E0A36D;             /* Warm caramel */
+      --glass-bg: rgba(60, 42, 33, 0.7);
+      --glass-border: rgba(133, 88, 58, 0.25);
+      --gradient-1: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      --gradient-2: linear-gradient(135deg, #85583A 0%, #E0A36D 100%);
+      --shadow-color: rgba(224, 163, 109, 0.3);
+    }
+    /* Glassmorphism classes (generator) */
+    .glass { background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--glass-border); }
+    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.37); transition: all 0.3s ease; }
+    .glass-card:hover { transform: translateY(-4px); box-shadow: 0 12px 48px rgba(0,0,0,0.5); border-color: var(--accent); }
+    .glass-nav { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+    .glass-button { background: var(--glass-bg); border: 1px solid var(--glass-border); transition: all 0.3s ease; }
+    .glass-button:hover { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px var(--accent); }
+  </style>
+</head>
+<body class='bg-black text-white overflow-x-hidden'>
+  <!-- Glassy Navigation with Sticky behavior -->
+  <nav class='glass-nav fixed w-full z-50'>
+    <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div class='flex justify-between items-center h-20'>
+        <a href='index.html' class='text-3xl font-bold magnetic' data-animate='gradient'>Cafe Nova</a>
+        <div class='hidden md:flex items-center space-x-8'>
+          <a href='#home' class='text-lg hover:text-accent transition-colors duration-300 magnetic'>Home</a>
+          <a href='#menu' class='text-lg hover:text-accent transition-colors duration-300 magnetic'>Menu</a>
+          <a href='#about' class='text-lg hover:text-accent transition-colors duration-300 magnetic'>About</a>
+          <a href='#contact' class='text-lg hover:text-accent transition-colors duration-300 magnetic'>Contact</a>
+        </div>
+        <button id='mobile-menu-btn' class='md:hidden text-2xl magnetic'>☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Particle Canvas (background) will be injected by JS -->
+  <!-- HERO SECTION -->
+  <section id='home' class='min-h-screen flex items-center justify-center relative bg-cover bg-center' style="background-image: url('https://images.unsplash.com/photo-1522870225774-8b9e15e2b8a2?q=80&w=1400&auto=format&fit=crop');" data-parallax>
+    <div class='absolute inset-0 bg-black bg-opacity-50'></div>
+    <div class='relative z-10 text-center px-4 max-w-2xl'>
+      <h1 class='text-5xl md:text-6xl font-extrabold mb-4' data-animate='words' style='font-family: ui-sans-serif, system-ui, -apple-system;'>
+        Coffee crafted to spark conversations
+      </h1>
+      <p class='text-xl md:text-2xl text-gray-200 mb-8' data-animate='typewriter' data-speed='60'>A cozy corner where beans meet brilliance</p>
+      <div class='flex gap-4 justify-center'>
+        <a href='#menu' class='px-6 py-3 rounded-full glass-button font-semibold text-lg'>Explore Menu</a>
+        <a href='#contact' class='px-6 py-3 rounded-full glass-button font-semibold text-lg'>Find Our Location</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id='menu' class='py-20 px-4'>
+    <div class='max-w-7xl mx-auto'>
+      <h2 class='text-4xl md:text-5xl font-bold text-center mb-10' data-animate='words'>Our Signature Brews</h2>
+      <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
+        <!-- Espresso Card -->
+        <div class='glass-card p-6'>
+          <div class='text-4xl mb-4'>☕</div>
+          <h3 class='text-2xl font-semibold mb-2'>Espresso</h3>
+          <p class='text-gray-300'>Intense, velvety and bold—our benchmark for a classic coffee experience.</p>
+          <div class='mt-4 flex items-center justify-between'>
+            <span class='font-semibold'>€2.50</span>
+            <button class='glass-button px-4 py-2 rounded'>Add</button>
+          </div>
+        </div>
+        <!-- Latte Card -->
+        <div class='glass-card p-6'>
+          <div class='text-4xl mb-4'>🥛</div>
+          <h3 class='text-2xl font-semibold mb-2'>Cappuccino / Latte</h3>
+          <p class='text-gray-300'>Creamy milk balanced with our focused espresso shot.</p>
+          <div class='mt-4 flex items-center justify-between'>
+            <span class='font-semibold'>€3.50</span>
+            <button class='glass-button px-4 py-2 rounded'>Add</button>
+          </div>
+        </div>
+        <!-- Cold Brew Card -->
+        <div class='glass-card p-6'>
+          <div class='text-4xl mb-4'>🧊</div>
+          <h3 class='text-2xl font-semibold mb-2'>Cold Brew</h3>
+          <p class='text-gray-300'>Smooth, refreshing and perfect for warm days.</p>
+          <div class='mt-4 flex items-center justify-between'>
+            <span class='font-semibold'>€3.20</span>
+            <button class='glass-button px-4 py-2 rounded'>Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id='about' class='py-20 bg-black/60'>
+    <div class='max-w-5xl mx-auto px-4'>
+      <h2 class='text-4xl md:text-5xl font-bold text-center mb-6' data-animate='words'>Our Story</h2>
+      <p class='text-gray-300 text-lg leading-relaxed text-center max-w-3xl mx-auto'>Cafe Nova was founded in 2020 with a simple mission: serve ethical, small-batch coffee in a space that invites conversation. Every cup is roasted locally and crafted by baristas who love coffee as much as community.</p>
+      <div class='grid grid-cols-1 md:grid-cols-3 gap-6 mt-8'>
+        <div class='glass-card p-6'>
+          <div class='text-3xl mb-2'>Founder</div>
+          <div class='font-semibold'>Mia Chen</div>
+          <p class='text-sm text-gray-300'>Co-owner and roaster, champion of sustainable sourcing.</p>
+        </div>
+        <div class='glass-card p-6'>
+          <div class='text-3xl mb-2'>Team</div>
+          <div class='font-semibold'>Skilled Baristas</div>
+          <p class='text-sm text-gray-300'>Crafting drinks with precision and warmth.</p>
+        </div>
+        <div class='glass-card p-6'>
+          <div class='text-3xl mb-2'>Values</div>
+          <p class='text-sm text-gray-300'>Ethical sourcing, community events, and eco-friendly operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id='contact' class='py-20 px-4'>
+    <div class='max-w-5xl mx-auto'>
+      <h2 class='text-4xl md:text-5xl font-bold text-center mb-6' data-animate='words'>Visit Us</h2>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <form class='glass-card p-6' autocomplete='off'>
+          <div class='mb-4'>
+            <label class='block text-sm mb-1'>Name</label>
+            <input class='w-full p-2 rounded glass' type='text' placeholder='Your name'>
+          </div>
+          <div class='mb-4'>
+            <label class='block text-sm mb-1'>Email</label>
+            <input class='w-full p-2 rounded glass' type='email' placeholder='you@example.com'>
+          </div>
+          <div class='mb-4'>
+            <label class='block text-sm mb-1'>Message</label>
+            <textarea class='w-full p-2 rounded glass' rows='4' placeholder='Your message...'></textarea>
+          </div>
+          <button class='px-5 py-2 rounded glass-button'>Send Message</button>
+        </form>
+        <div class='glass-card p-6'>
+          <div class='mb-2 font-semibold'>Our Hours</div>
+          <div class='text-gray-300'>Mon–Fri: 7:00 – 18:00</div>
+          <div class='text-gray-300'>Sat: 8:00 – 16:00</div>
+          <div class='mt-4'>
+            <div class='text-gray-300'>Location</div>
+            <div class='text-sm'>123 Roastery Lane, Brewtown</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class='py-8 text-center text-gray-400'>© Cafe Nova. All rights reserved.</footer>
+
+  <!-- Loading Screen (per rule 15.1) -->
+  <div id='loading-screen' style='position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #0b0b0f; z-index: 9999;'>
+    <div style='text-align:center'>
+      <div style='width: 60px; height: 60px; border: 6px solid #fff; border-top-color: var(--accent); border-radius:50%; animation: spin 1s linear infinite; margin: 0 auto 12px'> </div>
+      <div style='color: #fff; font-family: sans-serif;'>Loading Café Nova...</div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+
+  <!-- Core JS (Modular Modern UI features) -->
+  <script>
+    // 1) Glassmorphism generator
+    function initGlassmorphism() {
+      const glassStyles = document.createElement('style');
+      glassStyles.id = 'glassmorphism-styles';
+      glassStyles.textContent = `
+        .glass { background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border:1px solid var(--glass-border); }
+        .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border:1px solid var(--glass-border); border-radius:16px; box-shadow:0 8px 32px rgba(0,0,0,0.37); }
+        .glass-nav { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom:1px solid var(--glass-border); }
+        .glass-button { background: var(--glass-bg); border:1px solid var(--glass-border); transition: all 0.3s ease; }
+        .glass-button:hover { background: var(--accent); border-color: var(--accent); box-shadow:0 0 20px var(--accent); }
+      `;
+      document.head.appendChild(glassStyles);
+    }
+
+    // 2) Particles background
+    function initParticles() {
+      const canvas = document.createElement('canvas');
+      canvas.id = 'particles-canvas';
+      canvas.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;';
+      document.body.prepend(canvas);
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      const particles = [];
+      const N = 80;
+      class P { constructor(){ this.x = Math.random()*w; this.y = Math.random()*h; this.size = Math.random()*3+1; this.vx = Math.random()*0.5-0.25; this.vy = Math.random()*0.5-0.25; this.a = Math.random()*0.5+0.2; } update(){ this.x += this.vx; this.y += this.vy; if(this.x>w) this.x=0; if(this.x<0) this.x=w; if(this.y>h) this.y=0; if(this.y<0) this.y=h; } draw(){ ctx.fillStyle = `rgba(255,255,255,${this.a})`; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); } }
+      for(let i=0;i<N;i++) particles.push(new P());
+      function connect(){ for(let i=0;i<particles.length;i++){ for(let j=i+1;j<particles.length;j++){ const dx = particles[i].x - particles[j].x; const dy = particles[i].y - particles[j].y; const d = Math.sqrt(dx*dx+dy*dy); if(d<120){ ctx.strokeStyle = `rgba(255,255,255,${0.1*(1-d/120)})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); }}} }
+      function loop(){ ctx.clearRect(0,0,w,h); particles.forEach(p=>{ p.update(); p.draw(); }); connect(); requestAnimationFrame(loop); }
+      loop();
+      window.addEventListener('resize', ()=>{ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+    }
+
+    // 3) Custom cursor (magnetic) – simplified for performance
+    function initCustomCursor(){
+      const s = document.createElement('style');
+      s.textContent = `
+        * { cursor: none !important; }
+        .cursor-dot { width: 8px; height: 8px; background: var(--accent); border-radius:50%; position: fixed; z-index: 9999; pointer-events: none; transform: translate(-50%, -50%); }
+        .cursor-outline { width: 40px; height: 40px; border: 2px solid var(--accent); border-radius:50%; position: fixed; z-index: 9998; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s ease; }
+        .cursor-outline.expand { transform: translate(-50%, -50%) scale(1.4); background: rgba(255,255,255,0.08); }
+      `;
+      document.head.appendChild(s);
+      const dot = document.createElement('div'); dot.className = 'cursor-dot';
+      const outline = document.createElement('div'); outline.className = 'cursor-outline';
+      document.body.appendChild(dot); document.body.appendChild(outline);
+      let mx = 0, my = 0, ox = 0, oy = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx+'px'; dot.style.top = my+'px'; });
+      (function animate(){ ox += (mx-ox)*0.15; oy += (my-oy)*0.15; outline.style.left = ox+'px'; outline.style.top = oy+'px'; requestAnimationFrame(animate); })();
+      document.querySelectorAll('a, button, .magnetic').forEach(el => {
+        el.addEventListener('mouseenter', ()=> outline.classList.add('expand'));
+        el.addEventListener('mouseleave', ()=> outline.classList.remove('expand'));
+      });
+    }
+
+    // 4) Magnetic elements on hover (buttons, cards)
+    function initMagneticElements(){
+      document.querySelectorAll('.glass-card, .glass-button, button, .magnetic').forEach(el => {
+        el.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.addEventListener('mousemove', (e)=>{
+          const r = el.getBoundingClientRect();
+          const x = e.clientX - r.left - r.width/2;
+          const y = e.clientY - r.top - r.height/2;
+          const moveX = x * 0.25; const moveY = y * 0.25;
+          el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        el.addEventListener('mouseleave', ()=>{ el.style.transform = 'translate(0,0)'; });
+      });
+    }
+
+    // 5) Ripple effect
+    function initRippleEffect(){
+      document.querySelectorAll('button, .btn, .ripple-container').forEach(btn => {
+        btn.classList.add('ripple-container');
+        btn.addEventListener('click', function(e){
+          const r = this.getBoundingClientRect(); const size = Math.max(r.width, r.height);
+          const span = document.createElement('span'); span.className = 'ripple';
+          span.style.position = 'absolute'; span.style.borderRadius = '50%'; span.style.transform = 'scale(0)'; span.style.background = 'rgba(255,255,255,0.6)'; span.style.pointerEvents = 'none';
+          const x = e.clientX - r.left - size/2; const y = e.clientY - r.top - size/2;
+          span.style.width = span.style.height = size + 'px'; span.style.left = x + 'px'; span.style.top = y + 'px'; this.appendChild(span);
+          span.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+          requestAnimationFrame(()=>{ span.style.transform = 'scale(4)'; span.style.opacity = '0'; });
+          setTimeout(()=> span.remove(), 600);
+        });
+      });
+    }
+
+    // 6) Card tilt (3D on hover)
+    function initCardTilt(){
+      document.querySelectorAll('.tilt-card, [data-tilt]').forEach(card => {
+        let rx = 0, ry = 0;
+        card.classList.add('tilt-card');
+        card.addEventListener('mousemove', (e)=>{
+          const r = card.getBoundingClientRect(); const cx = r.width/2, cy = r.height/2;
+          const x = e.clientX - r.left; const y = e.clientY - r.top;
+          rx = (y - cy) / 10; ry = (x - cx) / 10;
+          card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+        });
+        card.addEventListener('mouseleave', ()=>{ card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)'; });
+      });
+    }
+
+    // 7) Text animations (words, typewriter, gradient, split-hover)
+    function animateWords(){ document.querySelectorAll('[data-animate="words"]').forEach((el)=>{ const text = el.textContent.trim(); el.textContent = ''; const words = text.split(' '); words.forEach((w, i) => { const span = document.createElement('span'); span.textContent = w; span.style.opacity = '0'; span.style.display = 'inline-block'; span.style.transition = 'opacity 0.6s cubic-bezier(0.34,1.56,0.64,1)'; el.appendChild(span); if (i < words.length-1) el.appendChild(document.createTextNode(' ')); setTimeout(()=>{ span.style.opacity = '1'; }, i*60); }); }); }
+    function animateTypewriter(){ document.querySelectorAll('[data-animate="typewriter"]').forEach(el => { const text = el.textContent.trim(); el.textContent = ''; let i=0; const cursor = document.createElement('span'); cursor.textContent = '|'; el.appendChild(cursor); const timer = setInterval(()=>{ if (i < text.length) { el.insertBefore(document.createTextNode(text.charAt(i)), cursor); i++; } else { clearInterval(timer); cursor.remove(); } }, parseInt(el.dataset.speed) || 80); }); }
+    function animateGradient(){ document.querySelectorAll('[data-animate="gradient"]').forEach(el => { el.style.background = 'linear-gradient(90deg, var(--accent), var(--secondary), var(--accent))'; el.style.backgroundSize = '200% auto'; el.style.WebkitBackgroundClip = 'text'; el.style.backgroundClip = 'text'; el.style.color = 'transparent'; el.style.animation = 'gradientShift 3s ease infinite'; if (!document.getElementById('gradient-animation')) { const s = document.createElement('style'); s.id = 'gradient-animation'; s.textContent = '@keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }'; document.head.appendChild(s); } }); }
+    function animateSplitHover(){ document.querySelectorAll('[data-animate="split-hover"]').forEach(el => { const text = el.textContent.trim(); el.textContent = ''; text.split('').forEach((ch, idx) => { const span = document.createElement('span'); span.textContent = ch === ' ' ? ' A0' : ch; span.style.display = 'inline-block'; span.style.transition = 'transform 0.3s ease'; el.appendChild(span); span.addEventListener('mouseenter', ()=>{ span.style.transform = 'translateY(-6px) scale(1.2)'; span.style.color = 'var(--accent)'; span.style.textShadow = '0 0 8px currentColor'; }); span.addEventListener('mouseleave', ()=>{ span.style.transform = 'translateY(0) scale(1)'; span.style.color = ''; span.style.textShadow = ''; }); }); el.style.opacity = '1'; }); }
+
+    // 8) Scroll animations (IntersectionObserver)
+    function initScrollAnimations(){ const observer = new IntersectionObserver((entries)=>{ entries.forEach(entry => { if (entry.isIntersecting) { const el = entry.target; const anim = el.dataset.scrollAnimate || 'fadeUp'; el.classList.add('animate-'+anim); el.style.opacity = '1'; observer.unobserve(el); } }); }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }); document.querySelectorAll('[data-scroll-animate]').forEach(el => { el.style.opacity = '0'; observer.observe(el); }); const style = document.createElement('style'); style.textContent = `
+        .animate-fadeUp { animation: fadeUp 0.8s ease-out forwards; }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-slideLeft { animation: slideLeft 0.8s ease-out forwards; }
+        .animate-slideRight { animation: slideRight 0.8s ease-out forwards; }
+        .animate-scaleIn { animation: scaleIn 0.8s ease-out forwards; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideLeft { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideRight { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+      `; document.head.appendChild(style);
+    }
+
+    // 9) Dark mode toggle (with smooth transitions)
+    function initDarkMode(){
+      const toggle = document.createElement('button'); toggle.id = 'dark-mode-toggle'; toggle.className = 'fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full glass-button'; toggle.innerHTML = '<span>🌗</span>';
+      document.body.appendChild(toggle);
+      const style = document.createElement('style'); style.textContent = `
+        * { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+        body.dark-mode { background: #0a0a0a; color: #fff; }
+        body.dark-mode .glass-bg { background: rgba(255,255,255,0.04); }
+        body.light-mode { background: #fff; color: #000; }
+        body.light-mode .glass-bg { background: rgba(0,0,0,0.04); }
+      `; document.head.appendChild(style);
+      const saved = localStorage.getItem('coffee-dark-mode'); const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; if (!saved) { document.body.classList.add(prefersDark ? 'dark-mode' : 'light-mode'); } else { document.body.classList.add(saved);
+      }
+      // Set initial icon
+      const updateIcon = () => { const isDark = document.body.classList.contains('dark-mode'); toggle.innerHTML = isDark ? '<span>☀️</span>' : '<span>🌙</span>'; localStorage.setItem('coffee-dark-mode', isDark ? 'dark-mode' : 'light-mode'); };
+      updateIcon();
+      toggle.addEventListener('click', ()=>{ document.body.classList.toggle('dark-mode'); document.body.classList.toggle('light-mode'); updateIcon(); });
+    }
+
+    // 10) Loading screen removal on load
+    window.addEventListener('load', ()=>{ const ls = document.getElementById('loading-screen'); if (ls){ ls.style.opacity = '0'; setTimeout(()=> ls.remove(), 500); } });
+
+    // 11) Initialize all
+    function initAllModernFeatures(){
+      initGlassmorphism();
+      initParticles();
+      initCustomCursor();
+      initDarkMode();
+      initMagneticElements();
+      initRippleEffect();
+      initCardTilt();
+      animateWords();
+      animateTypewriter();
+      animateGradient();
+      animateSplitHover();
+      initScrollAnimations();
+      // Smooth anchor scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+      });
+      // Parallax hero
+      const hero = document.querySelector('[data-parallax]');
+      if (hero) {
+        window.addEventListener('scroll', () => {
+          const sc = window.pageYOffset;
+          hero.style.transform = 'translateY(' + (sc * 0.5) + 'px)';
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initAllModernFeatures);
+  </script>
+</body>
+</html>

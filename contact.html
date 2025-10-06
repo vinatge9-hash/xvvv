@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Café Nova — Contact</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <style>
+    :root { --primary:#3C2A21; --secondary:#85583A; --accent:#E0A36D; --glass-bg: rgba(60,42,33,0.7); --glass-border: rgba(133,88,58,0.25); }
+    .glass { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  </style>
+</head>
+<body class='bg-black text-white'>
+  <nav class='glass-nav fixed w-full z-50'>
+    <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between'>
+      <a href='index.html' class='text-2xl font-bold'>Cafe Nova</a>
+      <div class='hidden md:flex space-x-6'>
+        <a href='index.html' class='text-lg'>Home</a>
+        <a href='about.html' class='text-lg'>About</a>
+        <a href='contact.html' class='text-lg'>Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class='pt-28 px-4'>
+    <section class='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8'>
+      <div class='glass-card p-6'>
+        <h2 class='text-2xl font-bold mb-2'>Get in touch</h2>
+        <p class='text-gray-300'>Have questions or want to plan a tasting event? Reach out and we’ll reply within 24 hours.</p>
+        <ul class='mt-4 text-gray-300'>
+          <li>Phone: (123) 456-7890</li>
+          <li>Email: hello@cafienova.example</li>
+          <li>Address: 123 Roastery Lane, Brewtown</li>
+        </ul>
+      </div>
+      <form class='glass-card p-6'>
+        <div class='mb-4'>
+          <label>Name</label>
+          <input class='w-full p-2 mt-1 rounded glass' type='text' placeholder='Your name'>
+        </div>
+        <div class='mb-4'>
+          <label>Email</label>
+          <input class='w-full p-2 mt-1 rounded glass' type='email' placeholder='you@example.com'>
+        </div>
+        <div class='mb-4'>
+          <label>Message</label>
+          <textarea class='w-full p-2 mt-1 rounded glass' rows='4' placeholder='Your message...'></textarea>
+        </div>
+        <button class='px-4 py-2 rounded glass-button'>Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class='px-4 py-6 text-center text-gray-400'>© Cafe Nova — Contact</footer>
+
+  <script>
+    // Minimal init to maintain consistent UI feel
+    function initAllModernFeatures(){ }
+    document.addEventListener('DOMContentLoaded', initAllModernFeatures);
+  </script>
+</body>
+</html>

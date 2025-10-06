@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Café Nova — About</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <style>
+    :root {
+      --primary: #3C2A21; --secondary: #85583A; --accent: #E0A36D;
+      --glass-bg: rgba(60, 42, 33, 0.7); --glass-border: rgba(133, 88, 58, 0.25);
+      --gradient-1: linear-gradient(135deg, #fa709a 0%, #fee140 100%); --gradient-2: linear-gradient(135deg, #85583A 0%, #E0A36D 100%);
+      --shadow-color: rgba(224, 163, 109, 0.3);
+    }
+    .glass { background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--glass-border); }
+    .glass-card { background: var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:20px; }
+    .glass-nav { background: var(--glass-bg); border-bottom:1px solid var(--glass-border); }
+  </style>
+</head>
+<body class='bg-black text-white'>
+  <nav class='glass-nav fixed w-full z-50'>
+    <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between'>
+      <a href='index.html' class='text-2xl font-bold'>Cafe Nova</a>
+      <div class='hidden md:flex space-x-6'>
+        <a href='index.html' class='text-lg'>Home</a>
+        <a href='about.html' class='text-lg'>About</a>
+        <a href='contact.html' class='text-lg'>Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class='pt-28 px-4'>
+    <section class='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12'>
+      <div class='glass-card'>
+        <h2 class='text-3xl font-bold mb-4'>Our Mission</h2>
+        <p class='text-gray-300'>We believe coffee is more than a drink—it’s a moment shared with friends and strangers alike. At Cafe Nova, we source ethically, roast in small batches, and design every space to feel like home.</p>
+      </div>
+      <div class='text-center'>
+        <img src='https://images.unsplash.com/photo-1509042239860-fd7f4d6a8c86?q=80&w=1200&auto=format&fit=crop' alt='Barista at work' style='width:100%; border-radius:16px; border:1px solid #555;'>
+      </div>
+    </section>
+
+    <section class='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-12'>
+      <div class='glass-card'>
+        <div class='text-2xl mb-2'>Our Coffee</div>
+        <p class='text-gray-300'>Small-batch roasts with flavour notes that celebrate origin and craft.</p>
+      </div>
+      <div class='glass-card'>
+        <div class='text-2xl mb-2'>Community</div>
+        <p class='text-gray-300'>Weekly tastings, latte art nights, and spaces for local creators.</p>
+      </div>
+      <div class='glass-card'>
+        <div class='text-2xl mb-2'>Sustainability</div>
+        <p class='text-gray-300'>Compostable cups, local sourcing, and waste-reduction initiatives.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class='px-4 py-6 text-center text-gray-400'>© Cafe Nova — About</footer>
+
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script>
+    // Reuse the core initialization (small subset) to ensure consistency
+    function initAllModernFeatures(){ /* lightweight: rely on index.json core scripts if loaded */ }
+    document.addEventListener('DOMContentLoaded', initAllModernFeatures);
+  </script>
+</body>
+</html>
